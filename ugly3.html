@@ -1,0 +1,177 @@
+<!doctype html>
+   <html lang="en">
+     <head>
+       <meta charset="utf-8">
+       <title>Learning Coding In Lockdown</title>
+       <meta name="description" content="My first webpage">
+       <meta name="author" content="Alice">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <style>
+         .button {
+           width: 70px;
+           text-align: center;
+           border-style: solid;
+           padding: 8px;
+           margin:  8px;
+         }
+         .clear {
+           clear: both;
+         }
+         .button:hover
+        {
+          box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.25);
+        }
+        .button:active
+        {
+          background-color: #dddddd;
+        }
+         .number {
+           border-color: darkred;
+           color: darkred;
+         }
+         .operator {
+           border-color: darkblue;
+           color: darkblue;
+         }
+         .clear-button {
+           border-color: black;
+           color: black;
+         }
+         .display {
+           border-style: solid;
+           border-width: thin;
+           border-color: lightgrey;
+           width: 70px;
+           padding: 8px;
+           display: block;
+         }
+         column {
+           float: left;
+         }
+       </style>
+     </head>
+     <body>
+       <div>
+           <h2>Formula</h2>
+           <div class="display" id="formula"></div>
+         </div>
+         <div>
+           <row>
+             <column>
+           <div class="button number" value="0">0</div>
+         </column>
+         <column>
+             <div class="button number" value="1">1</div>
+           </column>
+           <column>
+             <div class="button number" value="2">2</div>
+           </column>
+           <column>
+             <div class="button number" value="3">3</div>
+           </column>
+         </row>
+         <div class="clear"><div>
+         <row>
+           <column>
+             <div class="button number" value="4">4</div>
+           </column>
+           <column>
+             <div class="button number" value="5">5</div>
+           </column>
+           <column>
+            <div class="button number" value="6">6</div>
+          </column>
+          <column>
+            <div class="button number" value="7">7</div>
+          </column>
+        </row>
+        <div class="clear"><div>
+          <row>
+          <column>
+            <div class="button number" value="8">8</div>
+          </column>
+          <column>
+            <div class="button number" value="9">9</div>
+          </column>
+        <column>
+           <div class="button operator" value="plus">Plus</div>
+         </column>
+         <column>
+           <div class="button operator" value="minus">Minus</div>
+         </column>
+       </row>
+       <div class="clear"><div>
+         <row>
+         <column>
+           <div class="button operator" value="times">Times</div>
+         </column>
+         <column>
+           <div class="button operator" value="divide">Divide</div>
+         </column>
+         <column>
+           <div class="button operator" value="equals">Equals</div>
+         </column>
+         <column>
+           <div class="button clear-button" value="clear">Clear</div>
+        </row>
+         </div>
+
+         <script>
+           var number = 0;
+           //var operator = -1;
+           //var formula = function (e) {
+           //this.innerHTML ;
+           //}
+           var buttonclickfn = function (e){
+             var digit = $(this).attr("value");
+         //number = number * 10 + parseInt(digit);
+        // console.log("the number is " + number);
+         console.log (digit);
+         $("#formula").append(digit);
+           //$("#formula").html(this.innerHTML)
+}
+
+$(".operator").on("click", function(){
+ console.log("Operator Clicked");
+//number = 0;
+         var op = $(this).attr("value");
+         console.log(op);
+         switch (op) {
+         case "plus":
+         operator = "+";
+         console.log(operator);
+         $("#formula").append(operator);
+         break;
+    case "minus":
+    operator = "-";
+    console.log(operator);
+        $("#formula").append(operator);
+    break;
+    case "divide":
+    operator = "/";
+    console.log(operator);
+        $("#formula").append(operator);
+    break;
+    case "times":
+    operator = "*";
+    console.log(operator);
+        $("#formula").append(operator);
+    break;
+       }})
+
+       console.log($(".clear"));
+       $(".clear-button").on("click", function(){
+    console.log("Clear Clicked");
+   var cleared = $(this).attr("value");
+   console.log(cleared);
+   $("#formula").text("");
+
+});
+        // var buttonclickfn = function (e) {
+          //   console.log("button clicked");
+          // }
+
+           $(".number").click(buttonclickfn);
+         </script>
+     </body>
+   </html>

@@ -1,0 +1,81 @@
+<!doctype html>
+   <html lang="en">
+     <head>
+       <meta charset="utf-8">
+       <title>Learning Coding In Lockdown</title>
+       <meta name="description" content="My first webpage">
+       <meta name="author" content="Alice">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <style>
+         .button {
+           width: 70px;
+           text-align: center;
+           border-style: solid;
+           padding: 8px;
+           margin:  8px;
+         }
+         .button:hover
+        {
+          box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.25);
+        }
+        .button:active
+        {
+          background-color: #dddddd;
+        }
+         .number {
+           border-color: darkred;
+           color: darkred;
+         }
+         .operator {
+           border-color: darkblue;
+           color: darkblue;
+         }
+         .display {
+           border-style: solid;
+           border-width: thin;
+           border-color: lightgrey;
+           width: 70px;
+           padding: 8px;
+           display: block;
+         }
+       </style>
+     </head>
+     <body>
+       <div>
+           <h2>Formula</h2>
+           <div class="display" id="formula"></div>
+         </div>
+         <div>
+           <div class="button number">Zero</div>
+             <div class="button number">One</div>
+             <div class="button number">2</div>
+             <div class="button number">3</div>
+             <div class="button number"data-num="4">4</div>
+             <div class="button number">5</div>
+            <div class="button number">6</div>
+            <div class="button number">7</div>
+            <div class="button number">8</div>
+            <div class="button number">9</div>
+         </div>
+
+         <div>
+           <div class="button operator">Plus</div>
+
+         </div>
+
+         <script>
+           //var formula = function (e) {
+           //return "this.innerHTML" ;
+           //}
+           $(".number, .operator").click(function(e) {
+            console.log("button pressed was : ", this.innerHTML)
+           $("#formula").html(this.innerHTML)
+           })
+           var buttonclickfn = function (e) {
+             console.log("button clicked");
+           }
+
+           $(".number, .operator").click(buttonclickfn);
+         </script>
+     </body>
+   </html>

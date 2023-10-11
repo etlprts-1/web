@@ -1,0 +1,36 @@
+<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Learning Coding In Lockdown</title>
+      <meta name="description" content="My first webpage">
+      <meta name="author" content="Alice">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    </head>
+    <body><script>
+
+  var run = function (hippo){
+    var result;
+try
+{
+  if (typeof(hippo) === number) {
+    throw ("got a number");
+  }
+  else {
+    result = hippo.toUpperCase();
+    console.log ("Word is " + result);
+  }}
+  catch (err)
+  {switch (err)
+  {case "got a number":
+  console.log("got a number");
+    break;
+    default:
+    console.log ("Got an error " + err);
+  }
+}
+}
+
+</script>
+</body>
+</html>

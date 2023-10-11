@@ -1,0 +1,213 @@
+<!doctype html>
+   <html lang="en">
+     <head>
+       <meta charset="utf-8">
+       <title>Learning Coding In Lockdown</title>
+       <meta name="description" content="My first webpage">
+       <meta name="author" content="Alice">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <style>
+         .button {
+           width: 70px;
+           text-align: center;
+           border-style: solid;
+           padding: 8px;
+           margin:  8px;
+           display: inline-block;
+           
+         }
+         .clear {
+           clear: both;
+         }
+         .button:hover
+        {
+          box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.25);
+        }
+        .button:active
+        {
+          background-color: darkred;
+        }
+         .number {
+           border-color: darkred;
+           color: darkred;
+         }
+         .operator {
+           border-color: darkblue;
+           color: darkblue;
+         }
+         .equals {
+           border-color: darkblue;
+           color: darkblue;
+         }
+         .clear-button {
+           border-color: black;
+           color: black;
+         }
+         .display {
+           border-style: solid;
+           border-width: thick;
+           border-color: lightgrey;
+           width: 70px;
+           height: 20px;
+           padding: 8px;
+           display: block;
+         }
+         column {
+           float: left;
+         }
+       </style>
+     </head>
+     <body>
+       <div>
+           <h2>Formula</h2>
+           <div class="display" id="formula"></div>
+
+         <div>
+         <h2>Result</h2>
+          <div class="display" id="result"></div>
+        </div>
+         <div>
+           <row>
+             <column>
+           <div class="button number" value="0">0</div>
+         </column>
+         <column>
+             <div class="button number" value="1">1</div>
+           </column>
+           <column>
+             <div class="button number" value="2">2</div>
+           </column>
+           <column>
+             <div class="button number" value="3">3</div>
+           </column>
+         </row>
+         <div class="clear"><div>
+         <row>
+           <column>
+             <div class="button number" value="4">4</div>
+           </column>
+           <column>
+             <div class="button number" value="5">5</div>
+           </column>
+           <column>
+            <div class="button number" value="6">6</div>
+          </column>
+          <column>
+            <div class="button number" value="7">7</div>
+          </column>
+        </row>
+        <div class="clear"><div>
+          <row>
+          <column>
+            <div class="button number" value="8">8</div>
+          </column>
+          <column>
+            <div class="button number" value="9">9</div>
+          </column>
+        <column>
+           <div class="button operator" value="plus">+</div>
+         </column>
+         <column>
+           <div class="button operator" value="minus">-</div>
+         </column>
+       </row>
+       <div class="clear"><div>
+         <row>
+         <column>
+           <div class="button operator" value="times">X</div>
+         </column>
+         <column>
+           <div class="button operator" value="divide">/</div>
+         </column>
+         <column>
+           <div class="button equals" value="equals" onclick="solve()">=</div>
+         </column>
+         <column>
+           <div class="button clear-button" value="clear">C</div>
+        </row>
+         </div>
+
+         <script>
+
+         function solve()
+       {
+           let x = document.getElementById("formula").innerText
+           console.log ("eq hit");
+           console.log (document.getElementById("formula"))
+           let y = eval(x)
+           $("#result").append(y);
+       };
+
+           var number = 0;
+
+           var buttonclickfn = function (e){
+             var digit = $(this).attr("value");
+             lastclick = ("number")
+             console.log (digit);
+             $("#formula").append(digit);
+
+
+}
+          var lastclick = "none"
+
+$(".operator").on("click", function(){
+         console.log("Operator Clicked");
+         console.log ("lc" + lastclick);
+         var op = $(this).attr("value");
+         console.log(op);
+         switch (op) {
+           case "plus":
+            operator = "+";
+            console.log(operator);
+            if (lastclick === "!none" || lastclick === "number") {
+              $("#formula").append(operator);
+              lastclick = "+*/";
+            }
+            break;
+         case "minus":
+          operator = "-";
+          console.log(operator);
+          if (lastclick === "number" || lastclick === "+*/") {
+            lastclick = "-";
+            $("#formula").append(operator);
+          }
+          break;
+        case "divide":
+          operator = "/";
+          console.log(operator);
+          if (lastclick === "!none" || lastclick === "number") {
+            $("#formula").append(operator);
+            lastclick = "+*/";
+          }
+
+          break;
+        case "times":
+          operator = "*";
+          console.log(operator);
+          if (lastclick === "!none" || lastclick === "number") {
+            $("#formula").append(operator);
+            lastclick = "+*/";
+          }
+
+          break;
+
+        }})
+       console.log($(".clear"));
+       $(".clear-button").on("click", function(){
+         console.log("Clear Clicked");
+         var cleared = $(this).attr("value");
+         console.log(cleared);
+         $("#formula").text("");
+         $("#result").text("");
+
+
+
+});
+
+
+           $(".number").click(buttonclickfn);
+
+
+         </script>
+     </body>
+   </html>

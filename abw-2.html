@@ -1,0 +1,49 @@
+<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Learning Coding In Lockdown</title>
+      <meta name="description" content="My first webpage">
+      <meta name="author" content="Alice">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+      <style>
+      * {
+          font-family: Roboto, sans-serif;
+        }
+      .button {
+        width: 70px;
+        text-align: center;
+        border-style: solid;
+      }
+      #results {
+        border-style: solid;
+        border-color: red;
+      }
+      input, #results, .button {
+        padding: 8px;
+        margin:  8px;
+      }
+      input, #results {
+        width: 120px;
+      }
+    </style>
+    </head>
+    <body>
+
+      <input type="text" id="myinput">
+      <div id="results">&nbsp;</div>
+      <div class="button">Press me</div>
+
+    <script>
+    var buttonclickfn = function (e){
+      var output = document.getElementById("myinput").value;
+
+        $("#results").text (output);
+      }
+
+  
+    $(".button").click(buttonclickfn);
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning Coding In Lockdown</title>
+    <meta name="description" content="My first webpage">
+    <meta name="author" content="Alice">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+      .button {
+        border-style: solid;
+      }
+      column {
+        float: left;
+      }
+      .clear {
+        clear: both;
+      }
+      .hide {
+        display: none;
+      }
+      #proud, .button {
+        width:      80px;
+        text-align: center;
+        padding:    8px;
+        margin:     8px;
+      }
+    </style>
+  </head>
+  <body>
+  <row>
+    <column>
+      <div class="button number hideable">Zero</div>
+    </column>
+    <column>
+      <div class="button number hideable">One</div>
+    </column>
+    </row>
+    <div class="clear"><div>
+    <row>
+      <column>
+        <div class="button hidebutton">Hide</div>
+      </column>
+      <column>
+        <div class="button showbutton">Show</div>
+      </column>
+      </row>
+      <div class="clear" id="proud"></div>
+      <script>
+      var hidefn = function () {
+        console.log("hide clicked");
+        $(".hideable").addClass("hide");
+        $("#proud").text("I hided it!")
+      };
+
+      var showfn = function () {
+        console.log("show clicked");
+        $(".hideable").removeClass("hide");
+        $("#proud").text("I shown it!")
+      };
+
+      $(".hidebutton").click(hidefn);
+      $(".showbutton").click(showfn);
+      </script>
+  </body>
+</html>

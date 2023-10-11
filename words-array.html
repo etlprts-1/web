@@ -1,0 +1,29 @@
+<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Learning Coding In Lockdown</title>
+      <meta name="description" content="My first webpage">
+      <meta name="author" content="Alice">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    </head>
+    <body>
+    <script>
+    var run = function () {
+
+      var sentence = "now is the winter of our discontent made glorious summer by this Son of York"
+      var wordarray = sentence.split(" ");
+      var no_of_words = wordarray.length;
+      var i = no_of_words - 1;
+
+      console.log(wordarray);
+      console.log("there are " + no_of_words + " words");
+      console.log("i is set to: "  + i);
+
+      for (i; i > -1; i--) {
+        console.log("word " + i + " is " + wordarray[i]);
+      };
+    };
+    </script>
+</body>
+</html>
